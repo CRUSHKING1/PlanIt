@@ -6,6 +6,7 @@ import { toast } from 'sonner'
 import InfoSection from '/src/view-trip/components/InfoSection.jsx';
 import Hotels from '../components/Hotels'
 import PlacesToVisit from '../components/PlacesToVisit'
+import Footer from '../components/Footer'
 function Viewtrip() {
   const {tripId}=useParams();
   const [trip,setTrip]=useState([]);
@@ -35,6 +36,7 @@ function Viewtrip() {
     }
   }
   return (
+    
     <div className='p-10 md:px-20 lg:px-44 xl:px-56'>Viewtrip : {tripId}
       {/*Information section*/}
       <InfoSection trip={trip}/>
@@ -42,6 +44,8 @@ function Viewtrip() {
       <Hotels trip={trip}/>
       {/*Daily plans*/}
       <PlacesToVisit trip={trip}/>
+      {/* Footer */}
+      <Footer trip={trip}></Footer>
     </div>
   
   )

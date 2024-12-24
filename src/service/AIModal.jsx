@@ -136,7 +136,7 @@ export const chatSession = model.startChat({
     {
       role: "user",
       parts: [
-        {text: "add minium 4 hotels and minium 3 to 4 activities per day\n"},
+        {text: "add minium 4 hotels and minium 3 to 4 activities per day and make all placeDetails same length add placeaddres elemrnt in place array and if place adress is not specfic give plave address as 'placename near destinaion city in this case lasvegas\n"},
       ],
     },
     {
