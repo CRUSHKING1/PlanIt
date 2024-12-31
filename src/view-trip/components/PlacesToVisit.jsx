@@ -4,8 +4,8 @@ import PlaceCardItem from './PlaceCardItem'
 function PlacesToVisit({trip}) {
   return (
     <div>
-      <h2 className='font-bold text-lg '>Places to Visit</h2>
-      <div>
+      <h2 className='font-bold text-lg mt-4 relative top-4 '>Places to Visit</h2>
+      <div >
               {trip.tripData?.itinerary.map((item,index)=>(
 
                 <div className='mt-5'>

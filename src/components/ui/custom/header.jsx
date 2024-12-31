@@ -21,7 +21,7 @@ function Header() {
   const user = JSON.parse(localStorage.getItem("user"));
   const [openDailog, setOpenDailog] = useState(false);
   useEffect(() => {
-    console.log(user);
+    // console.log(user);
   }, []);
   
   const login = useGoogleLogin({
@@ -40,17 +40,28 @@ function Header() {
         }
       )
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         localStorage.setItem("user", JSON.stringify(response.data));
         setOpenDailog(false);
          window.location.reload();
       });
   }
   return (
-    <div className="p-3 shadow-sm flex justify-between items-center px-5">
-      <img src="/logo.svg" alt="logo" />
+    <div className="p-3 shadow-sm flex justify-between items-center px-5  ">
+      <a href="/">
+   <div className="flex items-center space-x-1">
+  <img src="/logo.svg" alt="logo" className="h-8 w-auto" />
+  <h2 className="text-lg font-semibold text-gray-800 hover:text-green-600 transition-colors duration-300" style={{ fontFamily: 'Poppins, sans-serif' }}>
+    PlanIt
+  </h2>
+ 
+  </div>
+   </a>
+    
       <div>{user ? <div className="flex  items-center gap-3">
-        <Button variant="outline" className="rounded-full">My trip</Button>
+        <a href="/my-trips"><Button variant="outline" className="rounded-full">My trip</Button></a>
+        <a href="/create-trip"><Button variant="outline" className="rounded-full">+Create Trip</Button></a>
+      
 
        
         <Popover>

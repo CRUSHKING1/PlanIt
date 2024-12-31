@@ -15,13 +15,13 @@ function InfoSection({ trip }) {
   const GetPlacePhoto = async () => {
     try {
       const data = {
-        textQuery: trip?.userSelection?.location?.label,
-      };
+        textQuery:  trip?.userSelection?.location?.label
+      }
       const result = await GetPlaceDetails(data);
       if (result.data.places?.[0]?.photos?.[3]) {
         const photoName = result.data.places[0].photos[0].name;
         const PhotoUrl = PHOTO_REF_URL.replace("{NAME}", photoName);
-        console.log(PhotoUrl);
+        // console.log(PhotoUrl);
         setPhotoUrl(PhotoUrl);
       } else {
         console.warn("Photo not found or structure mismatch.");
@@ -35,7 +35,7 @@ function InfoSection({ trip }) {
     <div>
       <img
         src={PhotoUrl?PhotoUrl:'/PlaceHolder.jpg'}
-        className="h-[340px] w-full object-cover rounded"
+        className="h-[340px] w-full object-cover rounded-xl"
         alt="vacation image"
       />
       <div className="flex justify-between items-center">
@@ -55,9 +55,9 @@ function InfoSection({ trip }) {
             </h2>
           </div>
         </div>
-        <Button>
+        {/* <Button>
           <IoIosSend />
-        </Button>
+        </Button> */}
       </div>
     </div>
   );

@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 /* ... */
+h2{
+  color: black;
+}
+
+/* ... */
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -21,7 +26,7 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: black;
   text-decoration: inherit;
 }
 a:hover {

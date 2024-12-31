@@ -36,9 +36,9 @@ function CreateTrip() {
   function handleInputChange(name, value) {
     setFormData({ ...formData, [name]: value });
   }
-  useEffect(() => {
-    console.log(formData);
-  }, [formData]);
+  // useEffect(() => {
+  //   // console.log(formData);
+  // }, [formData]);
 
   const login = useGoogleLogin({
     onSuccess: (codeResponse) => GetUserProfile(codeResponse),
@@ -74,7 +74,7 @@ function CreateTrip() {
     console.log(FINAL_PROMPT);
 
     const result = await chatSession.sendMessage(FINAL_PROMPT);
-    console.log(result?.response?.text());
+    // console.log(result?.response?.text());
     setLoading(false);
     SaveAiTrip(result?.response?.text());
 
@@ -106,7 +106,7 @@ function CreateTrip() {
         }
       )
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         localStorage.setItem("user", JSON.stringify(response.data));
         setOpenDailog(false);
         OnGenerateTrip();
@@ -114,7 +114,7 @@ function CreateTrip() {
   }
   // sm:px-10 md:px-32 lg:px-56 xl:px-72 px-5 mt-10 div
   return (
-    <div className="sm:px-10 md:px-32 lg:px-56 xl:px-10 px:5 mt:10"> 
+    <div className="sm:px-10 md:px-32 lg:px-56 xl:px-72 px-5 mt-10"> 
       <h2 className="font-bold text-3xl">Tell us your travel preferences 🚞</h2>
       <p className="mt-3 text-gray-500 text-xl">
         Just provide some basic information, and our trip planner will generate
@@ -195,26 +195,30 @@ function CreateTrip() {
         </div>
       </div>
       <div className="my-10 justify-end flex ">
-        <Button disabled={loading} onClick={OnGenerateTrip}>
+        <Button disabled={loading}  className='bg-black text-white hover:bg-gray-800 rounded-xl'  onClick={OnGenerateTrip}>
           {" "}
           {loading ? (
-            <AiOutlineLoading3Quarters className="h-7 w-7 animate-spin" />
+            <AiOutlineLoading3Quarters className="h-7 w-7 animate-spin bg-black text-white hover:bg-gray-800 rounded-xl" />
           ) : (
             "Generate Trip"
           )}
         </Button>
       </div>
-      <Dialog open={openDailog}>
-        <DialogContent>
+      <Dialog open={openDailog} className="bg-white">
+        <DialogContent className="bg-white">
           <DialogHeader>
-            <DialogTitle>Are you absolutely sure?</DialogTitle>
+           
             <DialogDescription>
+              <div className="flex gap-2">
               <img src="/logo.svg" alt="logo" />
+              <h2 className="font-bold text-xl mt-2">PlanIt</h2>
+              </div>
+              
               <h2 className="font-bold text-lg mt-7">Sign In With Google</h2>
               <p>Sign in to the App with Google Authentiction Securely </p>
               <Button
                 onClick={login}
-                className="w-full mt-5 flex gap-4 items-center"
+                className="w-full mt-5 flex gap-4 items-center "
               >
                 <FcGoogle className="h-7 w-7" />
                 Sign in with Google

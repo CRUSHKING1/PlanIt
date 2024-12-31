@@ -37,7 +37,7 @@ function Viewtrip() {
   }
   return (
     
-    <div className='p-10 md:px-20 lg:px-44 xl:px-56'>Viewtrip : {tripId}
+    <div className='p-10 md:px-20 lg:px-44 xl:px-56'>
       {/*Information section*/}
       <InfoSection trip={trip}/>
       {/*Recommended Hotels*/}
