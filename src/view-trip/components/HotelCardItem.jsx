@@ -28,14 +28,15 @@ function HotelCardItem({ hotel }) {
     }
   };
   return (
-    <Link
-      to={
-        "https:www.google.com/maps/search/?api=1&query=" +
-        hotel?.hotelName +
-        hotel?.hotelAddress
-      }
-      target="_blank"
-    >
+    <a
+  href={
+    "https://www.google.com/maps/search/?api=1&query=" +
+    hotel?.hotelName +
+    hotel?.hotelAddress
+  }
+  target="_blank"
+  rel="noopener noreferrer"
+>
       <div className="hover:scale-105 transition-all cursor-pointer">
         <div>
           <img
@@ -52,7 +53,7 @@ function HotelCardItem({ hotel }) {
           </div>
         </div>
       </div>
-    </Link>
+    </a>
   );
 }
 

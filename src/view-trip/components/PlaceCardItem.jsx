@@ -29,7 +29,15 @@ function PlaceCardItem({ place }) {
     }
   };
   return (
-    <Link to={"https:www.google.com/maps/search/?api=1&query=" + place?.placeName+place?.placeAddress} target="_blank">
+    <a
+    href={
+      "https://www.google.com/maps/search/?api=1&query=" +
+      place?.placeName +
+      place?.placeAddress
+    }
+    target="_blank"
+    rel="noopener noreferrer"
+  >
       <div className="border rounded-xl p-3 mt-2 flex gap-5 
         hover:scale-105 transition-all hover:shadow-md cursor-pointer">
         <img
@@ -43,7 +51,7 @@ function PlaceCardItem({ place }) {
           <h2 className="mt-2 text-sm">🕥 {place.travelTime}</h2>
         </div>
       </div>
-    </Link>
+    </a>
   );
 }
 
